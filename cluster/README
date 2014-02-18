@@ -1,5 +1,7 @@
+Init without auth
+=================
 $ python replset_init.py --reset
-"""
+~~~
 Init DB(0), Port: 30000, Path: /home/id/data/mongodb-study/cluster/db/db-0
  $ mongod --dbpath /home/id/data/mongodb-study/cluster/db/db-0 --port 30000 --oplogSize 700 --logpath /home/id/data/mongodb-study/cluster/log/db-0.log --rest --replSet firstset
 
@@ -37,11 +39,14 @@ shutdown servers:
  $ mongo localhost:30000/admin --eval 'db.shutdownServer()'
  $ mongo localhost:30001/admin --eval 'db.shutdownServer()'
  $ mongo localhost:30002/admin --eval 'db.shutdownServer()'
-"""
+~~~
+
+Init with auth & keyfile
+========================
 
 $ python replset_init.py --reset --auth-key-file keyfile --auth-user account --auth-pass password
 
-"""
+~~~
 Init DB(0), Port: 30000, Path: /home/id/data/mongodb-study/cluster/db/db-0
  $ mongod --dbpath /home/id/data/mongodb-study/cluster/db/db-0 --port 30000 --oplogSize 700 --logpath /home/id/data/mongodb-study/cluster/log/db-0.log --rest
 nohup: ignoring input and appending output to `nohup.out'
@@ -101,9 +106,10 @@ shutdown servers:
  
  $ mongo localhost:30001/admin -u account -p password --eval 'db.shutdownServer()'
  $ mongo localhost:30002/admin -u account -p password --eval 'db.shutdownServer()'
-"""
+~~~
 
-Usage:
+Usage
+=====
 
 $ monogo localhost:30000/admin
 $ monogo localhost:30000/admin -u account -p password
